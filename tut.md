@@ -25,7 +25,9 @@ only one Qgrap.. item can respond to a event once
 rect->setFlag(QGraphicsItem::ItemIsFocusable);
 rect->setFocus(); 
 ```
-fdsgs
-dfg
-
+add this to Myrect source file
+> `if (event->key()==Qt::Key_Left)`
+> Qgraphicsview will recive the key press and pass it to Qgraphicsscene which inturn will search for the active object inside it and pass the event to it, (here it is MyRect) this MyRect will look look in its memory functions to .. 
+## 3. shoot with space bar
+-make a class bullet
     

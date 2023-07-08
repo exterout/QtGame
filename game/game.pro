@@ -10,12 +10,14 @@ CONFIG += c++17
 
 SOURCES += \
     Bullet.cpp \
+    Enemy.cpp \
     MyRect.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     Bullet.h \
+    Enemy.h \
     MyRect.h \
     mainwindow.h
 

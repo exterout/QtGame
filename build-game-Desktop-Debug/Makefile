@@ -52,10 +52,10 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../game/Myrect.cpp \
+SOURCES       = ../game/MyRect.cpp \
 		../game/main.cpp \
 		../game/mainwindow.cpp moc_mainwindow.cpp
-OBJECTS       = Myrect.o \
+OBJECTS       = MyRect.o \
 		main.o \
 		mainwindow.o \
 		moc_mainwindow.o
@@ -263,8 +263,8 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/features/exceptions.prf \
 		/usr/lib/qt/mkspecs/features/yacc.prf \
 		/usr/lib/qt/mkspecs/features/lex.prf \
-		../game/game.pro ../game/Myrect.h \
-		../game/mainwindow.h ../game/Myrect.cpp \
+		../game/game.pro ../game/MyRect.h \
+		../game/mainwindow.h ../game/MyRect.cpp \
 		../game/main.cpp \
 		../game/mainwindow.cpp
 QMAKE_TARGET  = game
@@ -704,8 +704,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../game/Myrect.h ../game/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../game/Myrect.cpp ../game/main.cpp ../game/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../game/MyRect.h ../game/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../game/MyRect.cpp ../game/main.cpp ../game/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../game/mainwindow.ui $(DISTDIR)/
 
 
@@ -767,10 +767,10 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-Myrect.o: ../game/Myrect.cpp ../game/Myrect.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Myrect.o ../game/Myrect.cpp
+MyRect.o: ../game/MyRect.cpp ../game/MyRect.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MyRect.o ../game/MyRect.cpp
 
-main.o: ../game/main.cpp ../game/Myrect.h
+main.o: ../game/main.cpp ../game/MyRect.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../game/main.cpp
 
 mainwindow.o: ../game/mainwindow.cpp ../game/mainwindow.h \

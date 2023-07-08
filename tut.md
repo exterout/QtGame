@@ -14,7 +14,8 @@ QGraphicsRectItem
 ## 2. events
 > a event is anything important that happens in the lifetime of the application 
 > keyPressEvent() and QKeyEevnt[this stores info about event i.e. what key is pressed   
-event propagation system [who the event is passed to ]
+event propagation system [who the event is passed to ]  
 QDebug [ to print code to console]
 create a new custom class 
+> right click the method function
 

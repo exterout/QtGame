@@ -56,17 +56,27 @@ SOURCES       = Bullet.cpp \
 		Enemy.cpp \
 		MyRect.cpp \
 		main.cpp \
-		mainwindow.cpp moc_Bullet.cpp \
+		mainwindow.cpp \
+		Game.cpp \
+		Score.cpp \
+		Player.cpp \
+		Health.cpp moc_Bullet.cpp \
 		moc_Enemy.cpp \
-		moc_mainwindow.cpp
+		moc_mainwindow.cpp \
+		moc_Player.cpp
 OBJECTS       = Bullet.o \
 		Enemy.o \
 		MyRect.o \
 		main.o \
 		mainwindow.o \
+		Game.o \
+		Score.o \
+		Player.o \
+		Health.o \
 		moc_Bullet.o \
 		moc_Enemy.o \
-		moc_mainwindow.o
+		moc_mainwindow.o \
+		moc_Player.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -273,11 +283,19 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		game.pro Bullet.h \
 		Enemy.h \
 		MyRect.h \
-		mainwindow.h Bullet.cpp \
+		mainwindow.h \
+		Game.h \
+		Score.h \
+		Player.h \
+		Score.h Bullet.cpp \
 		Enemy.cpp \
 		MyRect.cpp \
 		main.cpp \
-		mainwindow.cpp
+		mainwindow.cpp \
+		Game.cpp \
+		Score.cpp \
+		Player.cpp \
+		Health.cpp
 QMAKE_TARGET  = game
 DESTDIR       = 
 TARGET        = game
@@ -713,8 +731,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents Bullet.h Enemy.h MyRect.h mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents Bullet.cpp Enemy.cpp MyRect.cpp main.cpp mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents Bullet.h Enemy.h MyRect.h mainwindow.h Game.h Score.h Player.h Score.h $(DISTDIR)/
+	$(COPY_FILE) --parents Bullet.cpp Enemy.cpp MyRect.cpp main.cpp mainwindow.cpp Game.cpp Score.cpp Player.cpp Health.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
 
 
@@ -747,9 +765,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/qt/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -std=gnu++1z -flto -fno-fat-lto-objects -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/qt/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_Bullet.cpp moc_Enemy.cpp moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_Bullet.cpp moc_Enemy.cpp moc_mainwindow.cpp moc_Player.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_Bullet.cpp moc_Enemy.cpp moc_mainwindow.cpp
+	-$(DEL_FILE) moc_Bullet.cpp moc_Enemy.cpp moc_mainwindow.cpp moc_Player.cpp
 moc_Bullet.cpp: Bullet.h \
 		moc_predefs.h \
 		/usr/bin/moc
@@ -764,6 +782,11 @@ moc_mainwindow.cpp: mainwindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
 	/usr/bin/moc $(DEFINES) --include /home/nirbhay/cp/Qt/game/game/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/nirbhay/cp/Qt/game/game -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/13.1.1 -I/usr/include/c++/13.1.1/x86_64-pc-linux-gnu -I/usr/include/c++/13.1.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.1.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.1.1/include-fixed -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+
+moc_Player.cpp: Player.h \
+		moc_predefs.h \
+		/usr/bin/moc
+	/usr/bin/moc $(DEFINES) --include /home/nirbhay/cp/Qt/game/game/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/nirbhay/cp/Qt/game/game -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/13.1.1 -I/usr/include/c++/13.1.1/x86_64-pc-linux-gnu -I/usr/include/c++/13.1.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.1.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/13.1.1/include-fixed -I/usr/include Player.h -o moc_Player.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -815,6 +838,24 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
+Game.o: Game.cpp Game.h \
+		Player.h \
+		Score.h \
+		Health.h \
+		Enemy.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Game.o Game.cpp
+
+Score.o: Score.cpp Score.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Score.o Score.cpp
+
+Player.o: Player.cpp Player.h \
+		Bullet.h \
+		Enemy.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Player.o Player.cpp
+
+Health.o: Health.cpp Health.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Health.o Health.cpp
+
 moc_Bullet.o: moc_Bullet.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_Bullet.o moc_Bullet.cpp
 
@@ -823,6 +864,9 @@ moc_Enemy.o: moc_Enemy.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_Player.o: moc_Player.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_Player.o moc_Player.cpp
 
 ####### Install
 

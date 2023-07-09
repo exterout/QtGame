@@ -6,11 +6,11 @@
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
     // set bullet sound
-    bulletsound = new QMediaPlayer();
-    bulletsound->setMedia(QUrl("qrc:/sounds/bullet.wav"));
+    // bulletsound = new QMediaPlayer();
+   //  bulletsound->setMedia(QUrl("qrc:/sounds/bullet.wav"));
 
     // set graphic
-    setPixmap(QPixmap(":/images/player.png"));
+    setPixmap(QPixmap("./images/player.png"));
 }
 
 void Player::keyPressEvent(QKeyEvent *event){
@@ -31,15 +31,15 @@ void Player::keyPressEvent(QKeyEvent *event){
         scene()->addItem(bullet);
 
         // play bulletsound
-        if (bulletsound->state() == QMediaPlayer::PlayingState){
-            bulletsound->setPosition(0);
+     //   if (bulletsound->state() == QMediaPlayer::PlayingState){
+       //     bulletsound->setPosition(0);
         }
-        else if (bulletsound->state() == QMediaPlayer::StoppedState){
-            bulletsound->play();
-        }
+      //  else if (bulletsound->state() == QMediaPlayer::StoppedState){
+      //      bulletsound->play();
+    //    }
 
     }
-}
+
 
 void Player::spawn(){
     // create an enemy

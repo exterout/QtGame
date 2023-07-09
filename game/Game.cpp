@@ -3,7 +3,7 @@
 #include <QGraphicsTextItem>
 #include <QFont>
 #include "Enemy.h"
-#include <QMediaPlayer>
+//#include <QMediaPlayer>
 #include <QBrush>
 #include <QImage>
 
@@ -42,9 +42,9 @@ Game::Game(QWidget *parent){
     timer->start(2000);
 
     // play background music
-    QMediaPlayer * music = new QMediaPlayer();
-    music->setMedia(QUrl("qrc:/sounds/bgsound.mp3"));
-    music->play();
+    // QMediaPlayer * music = new QMediaPlayer();
+  //  music->setMedia(QUrl("qrc:/sounds/bgsound.mp3"));
+  //  music->play();
 
     show();
 }

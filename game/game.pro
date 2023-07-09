@@ -13,13 +13,21 @@ SOURCES += \
     Enemy.cpp \
     MyRect.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    Game.cpp \
+    Score.cpp \
+    Player.cpp \
+    Health.cpp
 
 HEADERS += \
     Bullet.h \
     Enemy.h \
     MyRect.h \
-    mainwindow.h
+    mainwindow.h \
+    Game.h \
+    Score.h \
+    Player.h \
+    Score.h
 
 FORMS += \
     mainwindow.ui

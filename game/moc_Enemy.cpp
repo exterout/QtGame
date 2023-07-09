@@ -1,5 +1,5 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'Bullet.h'
+** Meta object code from reading C++ file 'Enemy.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.15.9)
 **
@@ -7,11 +7,11 @@
 *****************************************************************************/
 
 #include <memory>
-#include "Bullet.h"
+#include "Enemy.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'Bullet.h' doesn't include <QObject>."
+#error "The header file 'Enemy.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.15.9. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -21,27 +21,27 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_Bullet_t {
+struct qt_meta_stringdata_Enemy_t {
     QByteArrayData data[3];
-    char stringdata0[13];
+    char stringdata0[12];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_Bullet_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_Enemy_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_Bullet_t qt_meta_stringdata_Bullet = {
+static const qt_meta_stringdata_Enemy_t qt_meta_stringdata_Enemy = {
     {
-QT_MOC_LITERAL(0, 0, 6), // "Bullet"
-QT_MOC_LITERAL(1, 7, 4), // "move"
-QT_MOC_LITERAL(2, 12, 0) // ""
+QT_MOC_LITERAL(0, 0, 5), // "Enemy"
+QT_MOC_LITERAL(1, 6, 4), // "move"
+QT_MOC_LITERAL(2, 11, 0) // ""
 
     },
-    "Bullet\0move\0"
+    "Enemy\0move\0"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_Bullet[] = {
+static const uint qt_meta_data_Enemy[] = {
 
  // content:
        8,       // revision
@@ -63,10 +63,10 @@ static const uint qt_meta_data_Bullet[] = {
        0        // eod
 };
 
-void Bullet::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void Enemy::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<Bullet *>(_o);
+        auto *_t = static_cast<Enemy *>(_o);
         (void)_t;
         switch (_id) {
         case 0: _t->move(); break;
@@ -76,32 +76,32 @@ void Bullet::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
     (void)_a;
 }
 
-QT_INIT_METAOBJECT const QMetaObject Bullet::staticMetaObject = { {
+QT_INIT_METAOBJECT const QMetaObject Enemy::staticMetaObject = { {
     QMetaObject::SuperData::link<QObject::staticMetaObject>(),
-    qt_meta_stringdata_Bullet.data,
-    qt_meta_data_Bullet,
+    qt_meta_stringdata_Enemy.data,
+    qt_meta_data_Enemy,
     qt_static_metacall,
     nullptr,
     nullptr
 } };
 
 
-const QMetaObject *Bullet::metaObject() const
+const QMetaObject *Enemy::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *Bullet::qt_metacast(const char *_clname)
+void *Enemy::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_Bullet.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_Enemy.stringdata0))
         return static_cast<void*>(this);
     if (!strcmp(_clname, "QGraphicsPixmapItem"))
         return static_cast< QGraphicsPixmapItem*>(this);
     return QObject::qt_metacast(_clname);
 }
 
-int Bullet::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int Enemy::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QObject::qt_metacall(_c, _id, _a);
     if (_id < 0)
